@@ -1,0 +1,17 @@
+{
+    "name": "Chattt",
+    "short_name": "Chattt",
+    "start_url": "tugas-kp3/public",
+    "background_color": "#6777ef",
+    "description": "Chattt",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "src": "logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
