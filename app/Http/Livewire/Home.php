@@ -19,6 +19,8 @@ use Auth;
 class Home extends Component
 {
     use WithFileUploads;
+    use LivewireAlert;
+
     public $noChat = false;
 
     public $avator;
@@ -38,8 +40,10 @@ class Home extends Component
     public $current_password;
     public $password;
     public $password_confirmation;
+    public $cari_pesan;
 
     protected $rules = ['message' => 'required'];
+    protected $queryString = ['cari_pesan'=> ['except' => '']];
 
     public function startChat($id)
     {
@@ -245,6 +249,11 @@ class Home extends Component
 
     public function render()
     {
+        if ($this->cari_pesan !== null) {
+            $cari_pesan = User::where('full_name','like', '%' . $this->cari_pesan . '%')
+                            ->latest();
+        }
+
         $user = Auth::user()->id;
         $receiver = $this->receiver;
         $current = User::find($receiver);

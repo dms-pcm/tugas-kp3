@@ -29,6 +29,12 @@
             }
         </script>
         @livewireStyles
+        <style>
+            #isiChat textarea{
+                max-height: 100px;
+                resize: none;
+            }
+        </style>
     </head>
 
     <body>
@@ -49,6 +55,14 @@
 
             function myFunction() {
                 $('#content_to_scroll').animate({scrollTop: $('#content_to_scroll').prop("scrollHeight")}, 500);
+
+                const textarea = document.querySelector("textarea.auto-size");
+                textarea.style.height = "15px";
+                textarea.addEventListener("keyup", e => {
+                    textarea.style.height = "15px";
+                    let scHeight = e.target.scrollHeight;
+                    textarea.style.height = `${scHeight}px`;
+                });
             }
 
             function load() {

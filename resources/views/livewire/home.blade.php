@@ -799,7 +799,7 @@
                                                 </div>
                                             </div>
 
-                                            <input type="text" class="form-control form-control-lg ps-0" placeholder="Cari pesan" aria-label="Cari pesan...">
+                                            <input type="text" class="form-control form-control-lg ps-0" placeholder="Cari pesan" aria-label="Cari pesan..." wire:model="cari_pesan">
                                         </div>
                                     </form>
                                 </div>
@@ -909,7 +909,7 @@
                                         <div class="row align-items-center gx-5">
                                             <div class="col-auto">
                                                 @if ($avator)
-                                                    <img src="{{ $avator->temporaryUrl() }}" class="img-thumbnail" style="border-radius: 50px; height:50px; width:50px;" alt="Preview">
+                                                    <img src="{{ $avator->temporaryUrl() }}" class="img-thumbnail" style="border-radius: 50px; height:50px; width:50px;object-fit:cover;" alt="Preview">
                                                 @elseif($profile)
                                                 <div class="avatar">
                                                     <img src="{{ asset('storage/avators/' . $profile[0]->avator) }}" alt="{{ Auth::user()->full_name }}" class="avatar-img">
@@ -1345,8 +1345,8 @@
                                 </div>
                                 <!-- required oninvalid="this.setCustomValidity('Anda belum mengetik pesan')" -->
                                 <div class="col">
-                                    <div class="input-group">
-                                        <textarea class="form-control px-0 @error('message') is-invalid @enderror" style="height:15px !important;" onfocus="myFunction()" autofocus type="text" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true" wire:model.defer="message" wire:ignore.self required oninvalid="this.setCustomValidity('Anda belum mengetik pesan')"></textarea>
+                                    <div class="input-group" id="isiChat">
+                                        <textarea class="form-control px-0 @error('message') is-invalid @enderror auto-size" style="height:15px !important;" onfocus="myFunction()" autofocus type="text" placeholder="Type your message..." rows="1" data-emoji-input="" data-autosize="true" wire:model.defer="message" wire:ignore.self required oninvalid="this.setCustomValidity('Anda belum mengetik pesan')"></textarea>
                                         <a href="#" class="input-group-text text-body pe-0 d-none" data-emoji-btn="">
                                             <span class="icon icon-lg">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-smile"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
