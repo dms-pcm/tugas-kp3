@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://latihan-kp3.test/'),
+    'url' => env('APP_URL', 'https://tugasdimas3.burningroom.co.id/'),
 
     'asset_url' => env('ASSET_URL', null),
 
