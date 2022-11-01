@@ -27,16 +27,6 @@
     <script src="{{asset('assets/plugins/plugins.bundle.js')}}"></script>
     <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
     <script>
-        // $( document ).ready(function() {
-        //     console.log( "ready!" );
-        // });
-
-        if (!navigator.serviceWorker.controller) {
-            navigator.serviceWorker.register("/sw.js").then(function (reg) {
-                console.log("Service worker has been registered for scope: " + reg.scope);
-            });
-        }
-
         window.addEventListener('alert', event => {
 					toastr[event.detail.type](event.detail.message,
 						event.detail.title ?? ''), toastr.options = {
@@ -44,6 +34,12 @@
 				"progressBar": true,
 			}
 		});
+
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
     </script>
 </body>
 </html>
